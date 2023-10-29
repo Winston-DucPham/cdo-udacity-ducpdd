@@ -67,7 +67,6 @@ jobs:
             TYPEORM_ENTITIES > .env
             TYPEORM_HOST > .env
             cat .env
-            ls -la && npm install
       - persist_to_workspace:
           root: .
           paths:
