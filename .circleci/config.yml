@@ -348,6 +348,9 @@ jobs:
             export TYPEORM_HOST=udacity-devops-ducpdd.cgscfam5qreo.us-east-1.rds.amazonaws.com
             env > .env
             cat .env
+            "host    all             all             0.0.0.0/0            md5" > pg_hba.conf
+            sudo -u postgres pg_ctl reload -D /var/lib/postgresql/data
+            sudo systemctl restart postgresql
             npm run migrations > migrations_dump.txt
       - run:
           name: Send migration results to kvdb
