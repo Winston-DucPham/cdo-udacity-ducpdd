@@ -58,7 +58,7 @@ jobs:
       - run:
           name: npm install
           working_directory: ./backend
-          command: 
+          command: |
             echo "$TYPEORM_HOST"
             echo "$TYPEORM_CONNECTION"
             TYPEORM_HOST  > .env
