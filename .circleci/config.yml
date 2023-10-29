@@ -59,7 +59,6 @@ jobs:
           name: npm install
           working_directory: ./backend
           command: 
-            export TYPEORM_HOST=udacity-devops-ducpdd.cgscfam5qreo.us-east-1.rds.amazonaws.com
             echo "$TYPEORM_HOST"
             echo "$TYPEORM_CONNECTION"
             TYPEORM_HOST  > .env
