@@ -342,12 +342,13 @@ jobs:
           name: Run migrations
           working_directory: ./backend
           command: |
-            npm run migrations > migration_status
+            export TYPEORM_HOST=udacity-devops-ducpdd.cgscfam5qreo.us-east-1.rds.amazonaws.com
+            npm run migrations > migrations_dump.txt
       - run:
           name: Send migration results to kvdb
           working_directory: ./backend
           command: |
-            if grep -q "has been executed successfully" migration_status
+            if grep -q "has been executed successfully" migrations_dump.txt
             then
               echo "DB migration was successful, will update kvdb..."
               curl https://kvdb.io/Auxmtykjfs15P7PdU5oabz/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d 'success'
