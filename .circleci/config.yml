@@ -61,10 +61,10 @@ jobs:
           command: |
             echo "$TYPEORM_HOST"
             echo "$TYPEORM_CONNECTION"
-            TYPEORM_HOST  > .env
-            TYPEORM_CONNECTION > .env
-            TYPEORM_ENTITIES > .env
-            TYPEORM_HOST > .env
+            $TYPEORM_HOST  > .env
+            $TYPEORM_CONNECTION > .env
+            $TYPEORM_ENTITIES > .env
+            $TYPEORM_HOST > .env
             cat .env
       - persist_to_workspace:
           root: .
